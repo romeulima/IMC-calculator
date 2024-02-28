@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-body: #040924;
+    --bg-main: white;
+    --bg-button: #02799D;
+    --bg-modal-wrapper: rgba(0, 0, 0, 0.7);
+    --bg-alert-error: #F03E3E;
+    --bg-input: #DCE2E9;
+
+    --tt-heading: #0C3440;
+    --tt-label: #00453A;
+    --tt-input: #212529;
+    --tt-placeholder: rgba(73, 80, 87, 0.5);
+    --tt-button: white;
+    --tt-alert-error: white;
+
+    --bd-input: rgba(73, 80, 87, 0.3);
+    --ot-input: #02799D;
+}
+
+html, body, button, input{
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: var(--bg-body);
+}
+
+.container-main{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.card{
+    background-color: var(--bg-main);
+    padding: 3rem 4rem 4rem;
+    max-width: 26.75rem;
+
+    border-radius: 0.375rem;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+
+    width: 18.75rem;
+}
+
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-wrapper + .input-wrapper{
+    margin-top: 1rem;
+}
+
+
+.title{
+    font-size: 2rem;
+    line-height: 2.5rem;
+    
+    color: var(--tt-heading);
+}
+
+.input-wrapper label{
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    
+    color: var(--tt-label);
+}
+
+.input-wrapper input{
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: var(--tt-input);
+    
+    background-color: var(--bg-input);
+    border: 1px solid var(--bd-input);
+    border-radius: 0.25rem;
+}
+
+.input-wrapper input:focus{
+    outline: 2px solid var(--ot-input);
+}
+
+.input-wrapper input::placeholder{
+    color: var(--tt-placeholder);
+}
+
+form button{
+    border: none;
+    background-color: var(--bg-button);
+    padding: 1rem;
+
+    color: var(--tt-button);
+
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    border-radius: 0.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+form button:hover{
+    background-color: #04627e;
+}
+
+.input-wrapper + button{
+    margin-top: 2rem;
+}
+
+.modal-wrapper{
+    background-color: var(--bg-modal-wrapper);
+    position: absolute;
+    inset: 0;
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal{
+    position: relative;
+}
+
+.alert-error.open{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.alert-error{
+    background-color: var(--bg-alert-error);
+    text-align: center;
+    padding: 0.5rem 0;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-2rem);
+    transition: transform 0.5s;
+}
+
+.alert-message{
+    color: var(--tt-alert-error);
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+.close{
+    position: absolute;
+    top: 1.313rem;
+    right: 1.313rem;
+
+    cursor: pointer;
+
+    transition: transform 0.2s;
+
+    background: transparent;
+    border: none;
+}
+
+.modal-wrapper.open{
+    opacity: 1;
+    visibility: visible;
+}
+
+.close:hover{
+    transform: scale(1.1);
+}
